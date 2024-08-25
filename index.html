@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Coin Flip Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1> Coin Flip Game</h1>
+    <div class="container">
+        <input type="number" id="betAmount" placeholder="Enter MATIC amount to bet">
+        <div>
+            <button onclick="flipCoin(true)">Bet on Heads</button>
+            <button onclick="flipCoin(false)">Bet on Tails</button>
+        </div>
+        <p id="result"></p>
+        
+    </div>
+
+    
+    <script src="https://unpkg.com/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+    
+    
+    <script src="index.js"></script>
+</body>
+</html>
