@@ -11,7 +11,7 @@ async function flipCoin(guess) {
         return;
     }
 
-    try {
+    
         // Check if MetaMask is installed
         if (!window.ethereum) {
             window.alert("MetaMask is not installed.");
@@ -43,14 +43,6 @@ async function flipCoin(guess) {
         else {
             document.getElementById("result").textContent = "Sorry, you lost!";
         }
-    } 
-    catch (error) {
-        console.error("Error flipping the coin:", error);
-        document.getElementById("result").textContent = "Transaction failed.";
-    }
-
-    document.getElementById("coin").classList.add("flip");
-    setTimeout(() => document.getElementById("coin").classList.remove("flip"), 1000);
 }
 
 // Automatically request accounts when the page loads
