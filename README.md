@@ -1,9 +1,6 @@
 # Blockchain coin flip
 
 
-## ⚠️ Warning
-Please make sure to enter your Metamask address inside JavaScript code in place of "YOUR_METAMASK_WALLET_ADDRESS"
-
 ## Discription
   
 A decentralized coin flip game built using JavaScript, Solidity, and deployed on the Polygon Amoy Testnet. This application allows users to connect their wallets, place bets in MATIC, and flip a coin to potentially double their tokens.The game runs on the Polygon Amoy Testnet and interacts with a smart contract written in Solidity.
@@ -27,7 +24,6 @@ A decentralized coin flip game built using JavaScript, Solidity, and deployed on
 [Link to Live Demo - https://suyash-gandhi.github.io/Blockchain-coin-flip/](https://suyash-gandhi.github.io/Blockchain-coin-flip/)
         
 ## 🧑🏻‍💻 Usage
-- Enter your Metamask address in javascript in place of "YOUR_METAMASK_WALLET_ADDRESS".
 -  Open "index.html" in your browser.
 - Connect your MetaMask wallet.
 - Choose heads or tails and click the corresponding button.
