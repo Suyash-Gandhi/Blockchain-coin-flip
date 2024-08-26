@@ -11,51 +11,46 @@ async function flipCoin(guess) {
         return;
     }
 
-    
-        // Check if MetaMask is installed
-        if (!window.ethereum) {
-            window.alert("MetaMask is not installed.");
-            return;
-        }
+    // Check if MetaMask is installed
+    if (!window.ethereum) {
+        window.alert("MetaMask is not installed.");
+        return;
+    }
 
-        // Request accounts if not already connected
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        if (accounts.length === 0) {
-            window.alert("No accounts found. Please connect your MetaMask wallet.");
-            return;
-        }
+    // Request accounts if not already connected
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    if (accounts.length === 0) {
+        window.alert("No accounts found. Please connect your MetaMask wallet.");
+        return;
+    }
 
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(contractAddress, abi, signer);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, abi, signer);
 
-        const betAmount = document.getElementById("betAmount").value;
+    const betAmount = document.getElementById("betAmount").value;
 
+    try {
         const tx = await contract.flipCoin(guess, { value: ethers.utils.parseEther(betAmount) });
         await tx.wait();
 
         const receipt = await provider.getTransactionReceipt(tx.hash);
-        const event = receipt.logs.map(log => contract.interface.parseLog(log)).find(log => log.name === "CoinFlipped");
+        const event = receipt.logs
+            .map(log => {
+                try {
+                    return contract.interface.parseLog(log);
+                } catch (e) {
+                    return null; // Ignore logs that don't match
+                }
+            })
+            .find(parsedLog => parsedLog && parsedLog.name === "CoinFlipped");
 
-        if (event.args.won) {
+        if (event && event.args.won) {
             document.getElementById("result").textContent = "Congratulations! You won!";
-        } 
-        else {
+        } else {
             document.getElementById("result").textContent = "Sorry, you lost!";
         }
-}
-
-// Automatically request accounts when the page loads
-window.addEventListener('load', async () => {
-    if (window.ethereum) {
-        try {
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-        } 
-        catch (error) {
-            console.error("Error requesting accounts:", error);
-        }
-    } 
-    else {
-        console.error("MetaMask is not installed.");
+    } catch (error) {
+        console.error("An error occurred during the transaction:", error);
     }
-});
+}
