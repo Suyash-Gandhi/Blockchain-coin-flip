@@ -1,4 +1,4 @@
-const contractAddress = "YOUR_METAMASK_WALLET_ADDRESS";
+const contractAddress = "0x86dBCE8eF54B9125c182dc5eDBc6A853696f9012";
 const abi = [
     "function flipCoin(bool guess) external payable",
     "function owner() public view returns (address)",
