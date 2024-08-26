@@ -4,20 +4,21 @@
 Some times due to MetaMask - RPC Error: Internal JSON-RPC error your transaction might fail. this error occures due to insufficient gas limit, network issues, outdated MetaMask version etc
 ### Solutions
 - Insufficient Gas Limit:
-Cause: If the gas limit set for the transaction is too low, the transaction may fail, leading to an internal JSON-RPC error.
-Solution: Increase the gas limit when sending the transaction. MetaMask usually estimates a reasonable gas limit, but you can try manually setting a higher gas limit in the transaction.
+  - Cause: If the gas limit set for the transaction is too low, the transaction may fail, leading to an internal JSON-RPC error.
+  - Solution: Increase the gas limit when sending the transaction. MetaMask usually estimates a reasonable gas limit, but you can try manually setting a higher gas limit in the transaction.
 
-- Network Issues:
--- Cause: If you're on a testnet or a custom network, there might be issues with the network provider or RPC endpoint.
--- Solution: Try switching to a different RPC endpoint or network (e.g., switching between mainnet, testnets, or different custom RPCs). Ensure the RPC endpoint you are using is stable.
+ - Network Issues:
+   - Cause: If you're on a testnet or a custom network, there might be issues with the network provider or RPC endpoint.
+
+   - Solution: Try switching to a different RPC endpoint or network (e.g., switching between mainnet, testnets, or different custom RPCs). Ensure the RPC endpoint you are using is stable.
 
 - MetaMask Permission Issues:
-Cause: If MetaMask doesn't have the necessary permissions, or if there's an issue with account access, it may cause this error.
-Solution: Ensure that MetaMask is connected to the correct account and has permission to interact with the dApp.
+  - Cause: If MetaMask doesn't have the necessary permissions, or if there's an issue with account access, it may cause this error.
+  - Solution: Ensure that MetaMask is connected to the correct account and has permission to interact with the dApp.
 
 - Outdated MetaMask Version:
-Cause: Sometimes, older versions of MetaMask might have bugs or compatibility issues with newer versions of ethers.js or the Ethereum network.
-Solution: Ensure that MetaMask is updated to the latest version.
+  - Cause: Sometimes, older versions of MetaMask might have bugs or compatibility issues with newer versions of ethers.js or the Ethereum network.
+  - Solution: Ensure that MetaMask is updated to the latest version.
 
 ## Discription
   
